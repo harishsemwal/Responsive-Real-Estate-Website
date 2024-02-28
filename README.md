@@ -2,8 +2,8 @@
 
 Built with advanced technology using ReactJS, the "Responsive Real-Estate-Website" offers a dynamic and interactive platform for users. This GitHub repository hosts the codebase for the website, showcasing innovative design and development practices.
 
--: Link-: https://uphelder-properties.vercel.app/
--: Research Paper Link: [Website Design & Development Using Advanced Technology ReactJS](https://ieeexplore.ieee.org/document/10428222/)
+# -: Link-: https://uphelder-properties.vercel.app/
+# -: Research Paper Link: [Website Design & Development Using Advanced Technology ReactJS](https://ieeexplore.ieee.org/document/10428222/)
 
 🔍 Research Paper Overview:
 
