@@ -5,7 +5,7 @@ Built with advanced technology using ReactJS, the "Responsive Real-Estate-Websit
 # -: Link-: https://uphelder-properties.vercel.app/
 # -: Research Paper Link: [Website Design & Development Using Advanced Technology ReactJS](https://ieeexplore.ieee.org/document/10428222/)
 
-🔍 Research Paper Overview:
+🔍 Research Paper Overview::
 
 Responsive Design: Explore methodologies for crafting responsive layouts that seamlessly adapt to diverse screen sizes and devices.
 Advanced Technology: Dive into the advantages of ReactJS, including component reusability, virtual DOM optimization, and a rich ecosystem of libraries.
