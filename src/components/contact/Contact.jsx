@@ -12,8 +12,8 @@ const Contact = () => {
           <form className='shadow'>
             <h4>Fillup The Form</h4> <br />
             <div>
-              <input type='text' placeholder='Name' />
-              <input type='text' placeholder='Email' />
+              <input type='text' placeholder='Name'/>
+              <input type='text' placeholder='Email'/>
             </div>
             <input type='text' placeholder='Subject' />
             <textarea cols='30' rows='10'></textarea>
