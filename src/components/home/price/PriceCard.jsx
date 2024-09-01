@@ -12,7 +12,7 @@ const PriceCard = () => {
             </div>
             <h3>{item.plan}</h3>
             <h1>
-              <span>$</span>
+              <span>₹</span>
               {item.price}
             </h1>
             <p>{item.ptext}</p>

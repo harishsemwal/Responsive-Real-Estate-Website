@@ -8,7 +8,7 @@ const Price = () => {
     <>
       <section className='price padding'>
         <div className='container'>
-          <Heading title='Select Your Package' subtitle='At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores' />
+          <Heading title='Select Your Package' subtitle='Choose the perfect plan for your needs. Whether you need basic features, the best value, or premium benefits, we have a package for you. Review the options below and select the one that suits your requirements' />
           <PriceCard />
         </div>
       </section>

@@ -1,5 +1,5 @@
 .footerContact {
-  background-color: #27ae60;
+  background-color: rgb(10, 136, 199);
   padding: 40px 0;
   color: #fff;
 }
@@ -7,7 +7,7 @@
   font-size: 40px;
 }
 footer {
-  background-color: #1d2636;
+  background-color: rgb(87, 3, 152);
   padding: 50px 0;
   color: #fff;
 }
@@ -23,14 +23,20 @@ footer h2 {
   font-weight: 500;
 }
 footer p {
-  color: grey;
+  color: white;
   margin: 20px 0;
 }
 footer input {
   background-color: #fff;
   padding: 17px;
   width: 100%;
-  border-radius: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+footer button{
+  background-color: rgb(26, 184, 15);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 footer h3 {
   font-weight: 500;
@@ -41,16 +47,17 @@ footer ul {
 }
 footer ul li {
   display: block;
-  color: grey;
+  color: whitesmoke;
   margin-bottom: 20px;
 }
 .legal {
   text-align: center;
   padding: 20px;
-  background: #1d2636;
+  background: rgb(87, 3, 152);
   color: rgba(255, 255, 255, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 @media screen and (max-width: 800px) {
   footer .container {
     grid-template-columns: repeat(2, 1fr);
