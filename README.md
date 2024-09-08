@@ -3,7 +3,7 @@
 Welcome to the **Responsive Real-Estate-Website**, a dynamic and interactive platform built with ReactJS for a seamless real estate experience. This repository showcases cutting-edge design and development practices, making property search and management intuitive and enjoyable.  
 
 ## Live Demo  
-🌐 **Explore the live demo**: [Uphelder Properties](https://uphelder-properties.vercel.app/)  
+🌐 **Explore the live demo**: [Uphelder Properties](https://uphelderbyharish.netlify.app/)  
 
 ## Research Paper  
 📚 **Dive into the research**: [Website Design & Development Using Advanced Technology ReactJS](https://ieeexplore.ieee.org/document/10428222/)  
