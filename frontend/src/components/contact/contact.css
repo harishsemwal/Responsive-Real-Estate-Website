@@ -1,28 +1,50 @@
-.contact form div {
-  display: flex;
+/* contact.css */
+.contact-form {
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  background-color: #ffffff; /* White background for the form */
 }
-.contact textarea {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  width: 100%;
-  border-radius: 5px;
-  margin-bottom: 20px;
+
+.contact-form h4 {
+  font-size: 1.75rem; /* Larger heading */
+  color: #343a40; /* Dark text color */
+  font-weight: 600; /* Bolder text */
 }
-.contact input {
-  margin-bottom: 20px;
-  margin-right: 10px;
+
+.contact-form input,
+.contact-form textarea {
+  border-radius: 0.5rem; /* Rounded corners for inputs */
+  border: 1px solid #ced4da; /* Light gray border */
+  padding: 0.75rem; /* Padding inside inputs */
+  margin-bottom: 1rem; /* Spacing between elements */
 }
-.contact form {
-  padding: 30px;
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 0.25rem rgba(0, 123, 255, 0.25); /* Subtle shadow on focus */
 }
+
+.contact-form button {
+  background-color: #007bff; /* Blue button */
+  border: none;
+  border-radius: 0.5rem; /* Rounded corners */
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+.contact-form button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
 @media screen and (max-width: 768px) {
-  .contact h4 {
-    width: 100%;
-    margin-bottom: 30px;
+  .contact-form h4 {
+    font-size: 1.5rem; /* Adjust font size on smaller screens */
   }
-  .contact form div {
-    flex-direction: column;
-  }
-  .contact input {
-    width: 100%;
+
+  .contact-form .row {
+    flex-direction: column; /* Stack inputs vertically on small screens */
   }
 }

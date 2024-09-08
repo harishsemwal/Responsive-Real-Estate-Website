@@ -1,34 +1,52 @@
 .awards {
-  background-color: #0712b4;
-  color: #fff;
-  text-align: center;
+  background-color: #0712b4; /* Primary background color */
+  color: #fff; /* Text color */
 }
-.awards .heading {
-  display: flex;
-  flex-direction: column-reverse;
-}
-.awards .heading p {
-  color: #27ae60;
-}
+
 .awards .heading h1 {
   color: #fff;
-  font-size: 30px;
-  font-weight: 400;
+  font-size: 36px; /* Font size for the main heading */
+  font-weight: 600; /* Heavier font weight */
 }
-.awards .icon {
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
-  margin: auto;
-  margin-top: 50px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4% 50%;
-  font-size: 32px;
-  color: #ffffff;
+
+.awards .heading p {
+  color: #27ae60; /* Accent color */
+  font-size: 18px; /* Font size for subtitle */
+  font-weight: 300; /* Lighter font weight */
 }
-.awards h1 {
-  font-size: 50px;
+
+.awards .award-box {
+  background-color: #ffffff; /* Light background for awards */
+  color: #333; /* Dark text color */
+  padding: 30px; /* Increased padding */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 }
-.awards p {
-  color: grey;
+
+.awards .award-box:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+}
+
+.awards .award-icon {
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  background: #0712b4; /* Primary color background */
+  border-radius: 50%; /* Circular background */
+  font-size: 32px; /* Icon size */
+  color: #ffffff; /* White icon color */
+}
+
+.awards .award-number {
+  font-size: 36px; /* Font size for numbers */
+  color: #0712b4; /* Primary color for numbers */
+  font-weight: 700; /* Bold font weight */
+}
+
+.awards .award-description {
+  color: #555; /* Lighter color for descriptions */
+  font-size: 16px; /* Font size for descriptions */
+  font-weight: 400; /* Normal font weight */
 }

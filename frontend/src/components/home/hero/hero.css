@@ -5,61 +5,120 @@
   background-size: cover;
   height: 90vh;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
-.hero .container {
-  padding-top: 15%;
-}
-.hero h1 {
-  color: #ffffff;
-  font-size: 60px;
-}
-.hero p {
-  color: #fff;
-  opacity: 0.8;
-}
-form {
-  background-color: #fff;
-  border-radius: 5px;
-  margin-top: 50px;
-  padding: 0 20px;
-}
-form input {
-  padding: 10px;
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.3); 
   width: 100%;
-  border: 1px solid rgba(128, 128, 128, 0.2);
-  margin-top: 5px;
-  border-radius: 5px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
-form span {
-  font-size: 14px;
-  color: grey;
+
+.container {
+  text-align: center;
+  color: #fff;
 }
-input::placeholder {
-  font-size: 17px;
-  color: black;
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fefefe; /* Light color for better contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Text shadow for readability */
 }
-form .box {
-  padding: 15px;
-  border-left: 1px solid rgba(128, 128, 128, 0.2);
+
+.hero p {
+  font-size: 20px;
+  color: #fefefe; /* Matching color with the title */
+  opacity: 0.9;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Text shadow for readability */
 }
-form .box:nth-child(1) {
-  border-left: none;
+
+.search-form {
+  background-color: #ffffff;
+  border-radius: 12px; /* Increased border radius for a softer look */
+  padding: 40px; /* Increased padding for better spacing */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Increased gap between form elements */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* More pronounced shadow */
+  margin: 0 auto;
+  max-width: 850px; /* Slightly wider form */
 }
-form h4 {
-  font-weight: 500;
+
+.form-group {
+  flex: 1;
+  min-width: 220px; /* Slightly wider minimum width */
 }
+
+.form-group label {
+  font-size: 16px; /* Larger label font size */
+  color: #333;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.form-group input {
+  padding: 14px; /* Increased padding for better input field appearance */
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Rounded corners for input fields */
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.form-group input::placeholder {
+  font-size: 16px;
+  color: #888;
+}
+
+.advanced-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-filter {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 14px 24px; /* Larger padding for the button */
+  border-radius: 10px; /* Rounded corners for the button */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-filter:hover {
+  background-color: #0056b3;
+}
+
+.btn-search {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 14px 24px; /* Larger padding for the button */
+  border-radius: 10px; /* Rounded corners for the button */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1;
+}
+
+.btn-search:hover {
+  background-color: #218838;
+}
+
 @media screen and (max-width: 800px) {
-  .hero .container {
-    padding-top: 30%;
-  }
-  form {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  form .box {
-    border-left: none;
-  }
-  form input {
-    width: 100%;
+  .search-form {
+    flex-direction: column;
   }
 }

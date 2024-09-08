@@ -1,29 +1,34 @@
-const validateSignup = (values) => {
-  let errors = {};
+function Validation(values) {
+    let errors = {};
 
-  if (!values.name) {
-    errors.name = "Full Name is required";
-  }
+    // Validate name
+    if (!values.name) {
+        errors.name = "Name is required.";
+    } else if (values.name.length < 3) {
+        errors.name = "Name must be at least 3 characters.";
+    } else {
+        errors.name = "";
+    }
 
-  if (!values.email) {
-    errors.email = "Email is required";
-  } else if (!/\S+@\S+\.\S+/.test(values.email)) {
-    errors.email = "Email address is invalid";
-  }
+    // Validate email
+    if (!values.email) {
+        errors.email = "Email is required.";
+    } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+        errors.email = "Email address is invalid.";
+    } else {
+        errors.email = "";
+    }
 
-  if (!values.password) {
-    errors.password = "Password is required";
-  } else if (values.password.length < 6) {
-    errors.password = "Password must be at least 6 characters long";
-  }
+    // Validate password
+    if (!values.password) {
+        errors.password = "Password is required.";
+    } else if (values.password.length < 6) {
+        errors.password = "Password must be at least 6 characters.";
+    } else {
+        errors.password = "";
+    }
 
-  if (!values.confirmPassword) {
-    errors.confirmPassword = "Confirm Password is required";
-  } else if (values.confirmPassword !== values.password) {
-    errors.confirmPassword = "Passwords do not match";
-  }
+    return errors;
+}
 
-  return errors;
-};
-
-export default validateSignup;
+export default Validation;

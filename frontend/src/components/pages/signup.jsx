@@ -1,117 +1,91 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import validateSignup from "./signupValidation"; // Import the validation function
-
-const fullPageStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  minHeight: "100vh",
-  backgroundColor: "pink", 
-};
-
-const cardStyle = {
-  maxWidth: "500px",
-  width: "100%",
-  padding: "30px",
-  borderRadius: "10px",
-  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-  backgroundColor: "#fff",
-};
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import Validation from "./signupValidation";
 
 function Signup() {
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
+  const [values, setValues] = useState({ name: "", email: "", password: "" });
+  const history = useHistory();
   const [errors, setErrors] = useState({});
 
   const handleInput = (event) => {
-    const { name, value } = event.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
+    setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validationErrors = validateSignup(values);
-    setErrors(validationErrors);
+    const err = Validation(values);
+    setErrors(err);
+
+    if (err.name === "" && err.email === "" && err.password === "") {
+      axios
+        .post("http://localhost:8081/signup", values)
+        .then((res) => {
+          localStorage.setItem("authToken", res.data.token); // Save token on successful signup
+          history.push("/");
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
-    <div style={fullPageStyle}>
-      <div className="card" style={cardStyle}>
-        <h2 className="text-center mb-4">Sign Up</h2>
+    <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
+      <div className="bg-white p-3 rounded w-25">
+        <h2>Sign-Up</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="name" className="form-label">
-              Full Name
+            <label htmlFor="name">
+              <strong>Name</strong>
             </label>
             <input
               type="text"
-              className="form-control"
-              id="name"
+              placeholder="Enter Name"
               name="name"
-              value={values.name}
               onChange={handleInput}
-              placeholder="Enter Full Name"
+              className="form-control rounded-0"
             />
-            {errors.name && <div className="text-danger">{errors.name}</div>}
+            {errors.name && <span className="text-danger"> {errors.name}</span>}
           </div>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email
+            <label htmlFor="email">
+              <strong>Email</strong>
             </label>
             <input
               type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={values.email}
-              onChange={handleInput}
               placeholder="Enter Email"
+              name="email"
+              onChange={handleInput}
+              className="form-control rounded-0"
             />
-            {errors.email && <div className="text-danger">{errors.email}</div>}
+            {errors.email && (
+              <span className="text-danger"> {errors.email}</span>
+            )}
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              Password
+            <label htmlFor="password">
+              <strong>Password</strong>
             </label>
             <input
               type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={values.password}
-              onChange={handleInput}
               placeholder="Enter Password"
-            />
-            {errors.password && <div className="text-danger">{errors.password}</div>}
-          </div>
-          <div className="mb-3">
-            <label htmlFor="confirmPassword" className="form-label">
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="confirmPassword"
-              name="confirmPassword"
-              value={values.confirmPassword}
+              name="password"
               onChange={handleInput}
-              placeholder="Confirm Password"
+              className="form-control rounded-0"
             />
-            {errors.confirmPassword && <div className="text-danger">{errors.confirmPassword}</div>}
+            {errors.password && (
+              <span className="text-danger"> {errors.password}</span>
+            )}
           </div>
-          <button type="submit" className="btn btn-primary w-100 mb-3">
-            Sign Up
+          <button type="submit" className="btn btn-success w-100 rounded-0">
+            Sign up
           </button>
-          <p className="text-center mb-4">
-            Already have an account?{" "}
-            <Link to="/login" className="text-primary">Login here</Link>.
-          </p>
+          <p>You agree to our terms and policies</p>
+          <Link
+            to="/"
+            className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
+          >
+            Login
+          </Link>
         </form>
       </div>
     </div>

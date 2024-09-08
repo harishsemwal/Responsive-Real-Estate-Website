@@ -344,9 +344,9 @@ export const footer = [
   {
     title: "Contact Us",
     text: [
-      { list: "Address: 1234 MG Road, Bengaluru, India" },
-      { list: "Phone: +91-9876543210" },
-      { list: "Email: info@realestate.co.in" },
+      { list: "Address: Bhagwanpur, Rajawala, Dehradun, Urrarakhand, India" },
+      { list: "Phone: +91-7895551828" },
+      { list: "Email: harishsemwal581@" },
     ],
   },
   {

@@ -1,38 +1,45 @@
-import React from "react"
-import Heading from "../../common/Heading"
-import "./hero.css"
+import React from "react";
+import Heading from "../../common/Heading";
+import "./hero.css";
 
 const Hero = () => {
   return (
     <>
-      <section className='hero'>
-        <div className='container'>
-          <Heading title='Search Your Next Home ' subtitle='Find new & featured property located in your local city.' />
+      <section className="hero">
+        <div className="hero-overlay">
+          <div className="container">
+            <Heading
+              title="Find Your Perfect Home"
+              subtitle="Explore a variety of properties in your local area with ease."
+            />
 
-          <form className='flex'>
-            <div className='box'>
-              <span>City/Street</span>
-              <input type='text' placeholder='Location' />
-            </div>
-            <div className='box'>
-              <span>Property Type</span>
-              <input type='text' placeholder='Property Type' />
-            </div>
-            <div className='box'>
-              <span>Price Range</span>
-              <input type='text' placeholder='Price Range' />
-            </div>
-            <div className='box'>
-              <h4>Advance Filter</h4>
-            </div>
-            <button className='btn1'>
-              <i className='fa fa-search'></i>
-            </button>
-          </form>
+            <form className="search-form">
+              <div className="form-group">
+                <label>City/Street</label>
+                <input type="text" placeholder="Enter location" />
+              </div>
+              <div className="form-group">
+                <label>Property Type</label>
+                <input type="text" placeholder="e.g. Apartment, House" />
+              </div>
+              <div className="form-group">
+                <label>Price Range</label>
+                <input type="text" placeholder="e.g. $1000 - $3000" />
+              </div>
+              <div className="form-group advanced-filter">
+                <button className="btn-filter">
+                  <i className="fa fa-filter"></i> Advanced Filter
+                </button>
+              </div>
+              <button className="btn-search">
+                <i className="fa fa-search"></i> Search
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

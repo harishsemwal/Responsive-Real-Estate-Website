@@ -1,55 +1,113 @@
 .price {
   text-align: center;
+  padding: 50px 0;
 }
-.price .content .box {
-  width: 31.5%;
-  padding: 30px;
-  border-radius: 10px;
-}
-.price button {
+
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #333;
   margin-bottom: 20px;
 }
-.price .box:nth-child(1) .topbtn button,
-.price .box:nth-child(3) .topbtn button {
-  display: none;
+
+.section-subtitle {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 40px;
 }
+
+.price .content {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.price .box {
+  background: #fff; /* Clean white background for cards */
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Soft shadow for card elevation */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1;
+  min-width: 280px;
+}
+
+.price .box:hover {
+  transform: translateY(-10px); /* Slight lift effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+}
+
 .price h3 {
-  font-size: 22px;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
 }
+
 .price h1 {
-  font-size: 60px;
+  font-size: 32px;
+  color: #007bff; /* Primary color for the main heading */
+  margin-bottom: 20px;
 }
+
 .price h1 span {
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 500;
+  color: #333;
 }
+
 .price ul {
-  margin-top: 40px;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
 }
+
 .price ul li {
   display: flex;
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #555;
 }
-.price label {
+
+.price ul li label {
   width: 30px;
   height: 30px;
   line-height: 30px;
+  background: #007bff; /* Primary color for labels */
+  color: #fff;
   border-radius: 50%;
-  margin-right: 20px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .price .btn5 {
   width: 100%;
+  background-color: #007bff; /* Primary color for button */
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
+
+.price .btn5:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
 @media screen and (max-width: 800px) {
   .price .content {
     flex-direction: column;
+    align-items: center;
   }
 
-  .price .content .box {
+  .price .box {
     width: 100%;
-    padding: 30px;
-    border-radius: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 20px; /* Reduced margin for mobile */
   }
 }

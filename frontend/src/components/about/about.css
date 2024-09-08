@@ -1,25 +1,29 @@
+/* about.css */
+
+/* Padding for the section */
 .about {
-  margin-bottom: 80px;
+  padding: 2rem 0; /* Adjust as needed */
 }
-.about .heading {
-  text-align: left;
-  width: 100%;
-  margin-bottom: 30px;
+
+/* Custom button style */
+.about .btn2 {
+  background-color: #007bff; /* Bootstrap primary color */
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
 }
+
+/* Ensure image is responsive */
+.about .img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Style for paragraph text */
 .about p {
-  font-size: 15px;
-  padding-right: 30px;
-  margin-bottom: 20px;
-  line-height: 30px;
-}
-@media screen and (max-width: 768px) {
-  .about .container {
-    flex-direction: column;
-  }
-  .about p {
-    padding: 0;
-  }
-  .about .container img {
-    margin-top: 50px;
-  }
+  color: #333; /* Dark gray for good contrast */
+  font-size: 1rem; /* Adjust font size as needed */
+  line-height: 1.6; /* Better readability */
+  margin-bottom: 1rem; /* Spacing between paragraphs */
 }

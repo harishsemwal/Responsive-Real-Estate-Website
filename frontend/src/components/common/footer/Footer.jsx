@@ -1,54 +1,82 @@
-import React from "react"
-import { footer } from "../../data/Data"
-import "./footer.css"
+import React from "react";
+import { footer } from "../../data/Data";
+import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap CSS is imported
+import "./footer.css";
 
 const Footer = () => {
   return (
     <>
-      <section className='footerContact'>
-        <div className='container'>
-          <div className='send flex'>
-            <div className='text'>
-              <h1>Do You Have Questions ?</h1>
-              <p>We'll help you to grow your career and growth.</p>
+      <section className="bg-light py-5 footerContact">
+        <div className="container">
+          <div className="row d-flex align-items-center">
+            <div className="col-md-8 text-center text-md-start mb-4 mb-md-0">
+              <h1 className="display-4 fw-bold text-dark">
+                Do You Have Questions?
+              </h1>
+              <p className="lead text-muted">
+                We'll help you to grow your career and growth.
+              </p>
             </div>
-            <button className='btn5'>Contact Us Today</button>
+            <div className="col-md-4 text-center">
+              <button className="btn btn-primary btn-lg">
+                Contact Us Today
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer>
-        <div className='container'>
-          <div className='box'>
-            <div className='logo'>
-              <img src='../images/logo-light.png' alt='' />
-              <h2>Do You Need Help With Anything?</h2>
-              <p>Receive updates, hot deals, tutorials, discounts sent straignt in your inbox every month</p>
-
-              <div className='input flex'>
-                <input type='text' placeholder='Email Address' />
-                <button>Subscribe</button>
+      <footer className="bg-dark text-white py-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4 mb-4 mb-md-0">
+              <img
+                src="../images/logo-light.png"
+                alt="Logo"
+                className="img-fluid mb-3"
+                style={{ maxWidth: "180px" }}
+              />
+              <h2 className="h4">Do You Need Help With Anything?</h2>
+              <p className="text-muted">
+                Receive updates, hot deals, tutorials, discounts sent straight
+                to your inbox every month.
+              </p>
+              <div className="input-group">
+                <input
+                  type="email"
+                  className="form-control"
+                  placeholder="Email Address"
+                />
+                <button className="btn btn-primary">Subscribe</button>
               </div>
             </div>
-          </div>
 
-          {footer.map((val) => (
-            <div className='box'>
-              <h3>{val.title}</h3>
-              <ul>
-                {val.text.map((items) => (
-                  <li> {items.list} </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+            {footer.map((val, index) => (
+              <div className="col-md-2 mb-4 mb-md-0" key={index}>
+                <h5 className="text-uppercase">{val.title}</h5>
+                <ul className="list-unstyled">
+                  {val.text.map((item, idx) => (
+                    <li key={idx}>
+                      <a
+                        href={item.link}
+                        className="text-white text-decoration-none"
+                      >
+                        {item.list}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
       </footer>
-      <div className='legal'>
-        <span>© 2024 Uphelder. Designd By Harish Prasad Semwal.</span>
+
+      <div className="bg-blue color-white py-3 text-center">
+        <span>© 2024 Uphelder Properties. Designed by Harish Prasad Semwal</span>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

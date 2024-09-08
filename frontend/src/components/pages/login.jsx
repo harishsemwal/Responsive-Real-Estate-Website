@@ -1,88 +1,95 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import validation from "./loginValidation"; // Import the validation function
-
-const fullPageStyle = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  minHeight: "100vh",
-  backgroundColor: "pink",
-};
-
-const cardStyle = {
-  maxWidth: "400px",
-  width: "100%",
-  padding: "30px",
-  borderRadius: "10px",
-  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-  backgroundColor: "#fff",
-};
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
+import Validation from "./loginValidation";
+import '././css/login.css'
 
 function Login() {
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
-  });
-
+  const [values, setValues] = useState({ email: "", password: "" });
+  const history = useHistory();
   const [errors, setErrors] = useState({});
+  const [backendError, setBackendError] = useState([]);
 
   const handleInput = (event) => {
-    const { name, value } = event.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
+    setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const validationErrors = validation(values);
-    setErrors(validationErrors);
+    const err = Validation(values);
+    setErrors(err);
+
+    if (err.email === "" && err.password === "") {
+      axios
+        .post("http://localhost:8081/login", values)
+        .then((res) => {
+          if (res.data.errors) {
+            setBackendError(res.data.errors);
+          } else {
+            setBackendError([]);
+            if (res.data === "Success") {
+              localStorage.setItem("authToken", res.data.token);
+              history.push("/");
+            } else {
+              alert("No record existed");
+            }
+          }
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   return (
-    <div style={fullPageStyle}>
-      <div className="card" style={cardStyle}>
-        <h2 className="text-center mb-4">Login</h2>
+    <div className="d-flex justify-content-center align-items-center bg-primary vh-100">
+      <div className="bg-white p-3 rounded w-25">
+        <h2>Sign-In</h2>
+        {backendError.length > 0 &&
+          backendError.map((e) => (
+            <p className="text-danger" key={e.msg}>
+              {e.msg}
+            </p>
+          ))}
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email
+            <label htmlFor="email">
+              <strong>Email</strong>
             </label>
             <input
               type="email"
-              className="form-control"
-              id="email"
-              name="email"
-              value={values.email}
-              onChange={handleInput}
               placeholder="Enter Email"
+              name="email"
+              onChange={handleInput}
+              className="form-control rounded-0"
             />
-            {errors.email && <div className="text-danger">{errors.email}</div>}
+            {errors.email && (
+              <span className="text-danger"> {errors.email}</span>
+            )}
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              Password
+            <label htmlFor="password">
+              <strong>Password</strong>
             </label>
             <input
               type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={values.password}
-              onChange={handleInput}
               placeholder="Enter Password"
+              name="password"
+              onChange={handleInput}
+              className="form-control rounded-0"
             />
-            {errors.password && <div className="text-danger">{errors.password}</div>}
+            {errors.password && (
+              <span className="text-danger"> {errors.password}</span>
+            )}
           </div>
-          <button type="submit" className="btn btn-primary w-100 mb-3">
-            Login
+          <button type="submit" className="btn btn-success w-100 rounded-0">
+            Log in
           </button>
-          <p className="text-center mb-4">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-primary">
-              Create Account
-            </Link>
-            .
-          </p>
+          <p>You agree to our terms and policies</p>
+          <Link
+            to="/signup"
+            className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none"
+          >
+            Create Account
+          </Link>
         </form>
       </div>
     </div>
